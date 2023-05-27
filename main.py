@@ -19,3 +19,37 @@ ev3 = EV3Brick()
 # Write your program here.
 ev3.speaker.beep()
 
+motor_left = Motor(Port.A)
+motor_right = Motor(Port.B)
+motor_C = Motor(Port.C)
+motor_V = Motor(Port.D)
+
+ultra = UltrasonicSensor(Port.S1)
+colorSensor = ColorSensor(Port.S2)
+gyro = GyroSensor(Prort.S3)
+
+
+motor_V.run_target(0,100)
+while True:
+    
+    motor_C.run_target(30,100)
+    
+    if ultra.distance() <= 200:
+        while gyro.angle(30):
+            motor_left.run(450)
+            motor_right.run(-450)
+
+        if colorSensor.color() = Color.RED:
+            motor_V.run(960)
+            wait(3000)
+
+    motor_C.run_target(-30,100)
+
+    if ultra.distance() <= 200:
+        while gyro.angle(-30):
+            motor_left.run(450)
+            motor_right.run(-450)
+
+        if colorSensor.color() = Color.RED:
+            motor_V.run(960)
+            wait(3000)
