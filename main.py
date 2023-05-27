@@ -47,8 +47,8 @@ while True:
 
     if ultra.distance() <= 200:
         while gyro.angle(-30):
-            motor_left.run(450)
-            motor_right.run(-450)
+            motor_left.run(-450)
+            motor_right.run(450)
 
         if colorSensor.color() = Color.RED:
             motor_V.run(960)
